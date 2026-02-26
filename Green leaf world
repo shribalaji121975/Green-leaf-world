@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Green Leaf World | Industrial Solar EPC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{margin:0;font-family:Poppins,Arial;background:#f4f6f5;color:#333}
+header{background:linear-gradient(to right,#0b3d2e,#1f7a4d);color:#fff;text-align:center;padding:40px;position:relative}
+header img{width:130px}
+header h1{margin:10px 0}
+.lang{position:absolute;top:15px;right:15px}
+.lang button{padding:6px 10px;border:none;border-radius:6px;cursor:pointer}
+
+section{max-width:1200px;margin:auto;padding:50px 20px}
+.hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;align-items:center}
+.hero img{width:100%;border-radius:15px}
+
+.card{background:#fff;border-radius:15px;padding:35px;margin-top:40px;box-shadow:0 10px 25px rgba(0,0,0,.1)}
+.offer{background:#fff3cd;border-left:6px solid #f39c12}
+
+input,select,textarea,button{width:100%;padding:12px;margin-top:10px;border-radius:8px;border:1px solid #ccc}
+button{background:#0b3d2e;color:#fff;border:none;cursor:pointer}
+
+.contact{background:linear-gradient(to right,#1f7a4d,#0b3d2e);color:#fff}
+.contact a{color:#ffd700;text-decoration:none;font-weight:bold}
+
+.float{
+position:fixed;right:15px;bottom:20px;display:flex;flex-direction:column;gap:10px
+}
+.float a{
+background:#25D366;color:#fff;padding:12px 15px;border-radius:50px;
+text-decoration:none;font-weight:bold;text-align:center
+}
+.call{background:#0b3d2e}
+
+footer{text-align:center;background:#000;color:#aaa;padding:15px}
+</style>
+</head>
+
+<body>
+
+<div class="lang">
+<button onclick="langEN()">English</button>
+<button onclick="langHI()">हिंदी</button>
+</div>
+
+<header>
+<img src="logo.png">
+<h1 id="t1">Green Leaf World</h1>
+<p id="t2">Commercial & Industrial Solar Power Solutions (Up to 50 MW)</p>
+</header>
+
+<section class="hero">
+<div>
+<h2 id="t3">Power Your Industry with the Sun</h2>
+<p id="t4">
+We deliver high-efficiency commercial & industrial solar power plants
+across Haryana, Uttarakhand, Western UP & Punjab.
+</p>
+</div>
+<img src="https://images.unsplash.com/photo-1509391366360-2e959784a276">
+</section>
+
+<section class="card offer">
+<h3 id="t5">⚠️ Important Price Alert</h3>
+<p id="t6">
+Due to Government restrictions on Non-DCR modules,
+solar prices may increase by <b>₹10–₹15 per watt after March 2026</b>.
+</p>
+<p id="t7"><b>Industrialists:</b> Lock current prices now.</p>
+</section>
+
+<section class="card">
+<h2 id="t8">Why Green Leaf World</h2>
+<ul>
+<li>✔ Projects from Commercial scale up to <b>50 MW</b></li>
+<li>✔ MNRE & DISCOM guideline aligned</li>
+<li>✔ DCR & Non-DCR expertise</li>
+<li>✔ Strong execution in 4 key states</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>💰 Industrial Solar ROI Calculator</h2>
+<input id="kw" placeholder="Plant Capacity (kW)">
+<input id="rate" placeholder="Electricity Tariff (₹/unit)">
+<button onclick="calc()">Calculate Savings</button>
+<p id="res"></p>
+</section>
+
+<section class="card">
+<h2>🤝 Franchise / Channel Partner Program</h2>
+<p>
+Apply-and-approval based opportunity for local vendors & EPC partners.
+</p>
+
+<h4>Required Documents</h4>
+<ul>
+<li>Aadhaar Card</li>
+<li>Electricity Bill</li>
+<li>Land Ownership Documents (Registry / Lease)</li>
+<li>Photograph</li>
+<li>Registered Mobile Number</li>
+<li>Email ID</li>
+<li>Bank Details (only for subsidy cases)</li>
+</ul>
+
+<form onsubmit="vendorWA();return false;">
+<h3>Vendor / Franchise Application</h3>
+<input id="vname" placeholder="Full Name" required>
+<input id="vfirm" placeholder="Firm / Company Name">
+<input id="vcity" placeholder="City / District">
+<select id="vtype">
+<option>EPC Contractor</option>
+<option>Electrical Contractor</option>
+<option>Solar Trader</option>
+<option>Civil / Structure Vendor</option>
+<option>Other</option>
+</select>
+<input id="vmobile" placeholder="Registered Mobile Number" required>
+<input placeholder="Document submission will be collected after approval" disabled>
+<button type="submit">Apply for Approval</button>
+</form>
+</section>
+
+<section class="card contact">
+<h2>📞 Contact Green Leaf World</h2>
+<p>📱 <a href="https://wa.me/919354803845">+91 93548 03845</a></p>
+<p>📧 <a href="mailto:shribalaji121975@gmail.com">shribalaji121975@gmail.com</a></p>
+
+<form onsubmit="clientWA();return false;">
+<h3>Industrial Solar Enquiry</h3>
+<input id="cname" placeholder="Your Name" required>
+<input id="ccompany" placeholder="Company Name">
+<input id="cmobile" placeholder="Mobile Number" required>
+<textarea id="creq" placeholder="Project Requirement"></textarea>
+<button type="submit">Send Enquiry</button>
+</form>
+</section>
+
+<div class="float">
+<a class="call" href="tel:+919354803845">📞 Call</a>
+<a href="https://wa.me/919354803845">💬 WhatsApp</a>
+</div>
+
+<footer>
+© 2026 Green Leaf World | Industrial Solar EPC
+</footer>
+
+<script>
+function calc(){
+let y=kw.value*4*365*rate.value;
+res.innerHTML="Estimated Yearly Saving: ₹ "+y.toLocaleString();
+}
+function clientWA(){
+let t=`Name:${cname.value}%0ACompany:${ccompany.value}%0APhone:${cmobile.value}%0AReq:${creq.value}`;
+window.open("https://wa.me/919354803845?text="+t);
+}
+function vendorWA(){
+let t=`Vendor Application%0AName:${vname.value}%0AFirm:${vfirm.value}%0ACity:${vcity.value}%0AType:${vtype.value}%0AMobile:${vmobile.value}`;
+window.open("https://wa.me/919354803845?text="+t);
+}
+function langHI(){
+t2.innerHTML="वाणिज्यिक एवं औद्योगिक सोलर समाधान (50 मेगावाट तक)";
+t3.innerHTML="अपने उद्योग को सौर ऊर्जा से सशक्त बनाएं";
+t4.innerHTML="हरियाणा, उत्तराखंड, पश्चिमी यूपी और पंजाब में औद्योगिक सोलर प्रोजेक्ट्स।";
+t5.innerHTML="⚠️ महत्वपूर्ण मूल्य सूचना";
+t6.innerHTML="मार्च 2026 के बाद सोलर कीमतें ₹10–₹15 प्रति वाट बढ़ सकती हैं।";
+t7.innerHTML="उद्योगपति अभी निर्णय लें।";
+}
+function langEN(){location.reload();}
+</script>
+
+</body>
+</html>
